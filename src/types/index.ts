@@ -57,8 +57,14 @@ export interface AxiosRequestConfig {
   headers?: any
   responseType?: XMLHttpRequestResponseType
   timeout?: number
+  transformRequest?: AxiosTransformer | AxiosTransformer[]
+  transformResponse?: AxiosTransformer | AxiosTransformer[]
 
   [propName: string]: any
+}
+
+export interface AxiosTransformer {
+  (data: any, headers?: any): any
 }
 
 export interface AxiosResponse<T = any> {
