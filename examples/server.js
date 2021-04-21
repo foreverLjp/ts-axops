@@ -76,6 +76,12 @@ router.get('/interceptor/get', function(req, res) {
   res.send('hello')
 })
 
+router.post('/config/post', function(req, res) {
+  res.json({
+    msg: 'success'
+  })
+})
+
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/__build__/',
   stats: {
