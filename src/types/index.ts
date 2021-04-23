@@ -73,6 +73,7 @@ export interface AxiosRequestConfig {
   [propName: string]: any
 
   cancelToken?: CancelToken
+  withCredentials?: boolean
 }
 
 export interface AxiosTransformer {
