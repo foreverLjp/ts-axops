@@ -87,12 +87,21 @@ router.get('/cancel/get', function(req, res) {
 router.post('/cancel/post', function(req, res) {
   res.json(req.body)
 })
+router.get('/more/get', function(req, res) {
+  res.send('asd')
+})
 
 app.use(webpackDevMiddleware(compiler, {
   publicPath: '/__build__/',
   stats: {
     colors: true,
     chunks: false
+  }
+}))
+
+app.use(express.static(__dirname, {
+  setHeaders (res) {
+    res.cookie('XSRF-TOKEN-D', '1234abc')
   }
 }))
 
