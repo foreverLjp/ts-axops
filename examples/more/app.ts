@@ -1,5 +1,6 @@
 import axios from '../../src'
 import NProgress from 'nprogress'
+import { AxiosError } from '../../src/helpers/error'
 
 const instance = axios.create()
 
@@ -72,4 +73,20 @@ axios.post('/more/post', {
   }
 }).then(res => {
   console.log(res)
+})
+
+axios.get('/more/304').then(res => {
+  console.log(res)
+}).catch((e: AxiosError) => {
+  console.log(e.message)
+})
+
+axios.get('/more/304', {
+  validateStatus(status) {
+    return status >=200 && status < 400
+  }
+}).then(res => {
+  console.log(res)
+}).catch((e: AxiosError) => {
+  console.log(e.message)
 })

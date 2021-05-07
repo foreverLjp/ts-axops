@@ -99,6 +99,11 @@ router.post('/more/upload', function(req, res) {
   res.end('upload success!')
 })
 
+router.get('/more/304', function(req, res) {
+  res.status(304)
+  res.end()
+})
+
 router.post('/more/post', function(req, res) {
   const auth = req.headers.authorization
   const [type, credentials] = auth.split(' ')
