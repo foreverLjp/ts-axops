@@ -91,7 +91,7 @@ router.post('/cancel/post', function(req, res) {
   res.json(req.body)
 })
 router.get('/more/get', function(req, res) {
-  res.send('asd')
+  res.json(req.query)
 })
 
 router.post('/more/upload', function(req, res) {

@@ -84,6 +84,8 @@ export interface AxiosRequestConfig {
   onUploadProgress?: (e: ProgressEvent) => void
 
   validateStatus?: (state: number) => boolean
+
+  paramsSerializer?: (params: any) => string
 }
 
 export interface AxiosBasicCredentials {
