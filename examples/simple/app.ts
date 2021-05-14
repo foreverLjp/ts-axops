@@ -8,3 +8,5 @@ axios({
     b: 2
   }
 })
+
+type ExtractActionParameters<A, T> = A extends { type: T } ? A : never
