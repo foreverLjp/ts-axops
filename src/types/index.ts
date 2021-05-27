@@ -16,6 +16,10 @@ export type Method =
   | 'patch'
   | 'PATCH'
 
+export interface AxiosClassStatic {
+  new (config: AxiosRequestConfig): Axios
+}
+
 export interface Axios {
   defaults: AxiosRequestConfig
 
@@ -37,6 +41,8 @@ export interface Axios {
 
   patch<T = any>(url: string, data?: any, config?: AxiosRequestConfig): AxiosPromise<T>
 
+  getUri(config?: AxiosRequestConfig): string
+
   cancelToken?: CancelToken
 }
 
@@ -53,6 +59,12 @@ export interface AxiosInstance extends Axios {
 
 export interface AxiosStatic extends AxiosInstance {
   create(config?: AxiosRequestConfig): AxiosInstance
+
+  all<T>(promise: Array<T | Promise<T>>): Promise<T[]>
+
+  spread<T, R>(callback: (...args: T[]) => R): (arr: T[]) => R
+
+  Axios: AxiosClassStatic
 
   CancelToken: CancelTokenStatic
   Cancel: CancelStatic
